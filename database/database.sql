@@ -4,27 +4,76 @@
 /*==============================================================*/
 
 
-drop table BOOK;
+drop table book;
 
-drop table AUTHOR;
+drop table author;
 
-drop table CATEGORY;
+drop table category;
 
-drop table EDITORIAL;
+drop table editorial;
 
-/*==============================================================*/
-/* Table: BOOK                                               */
-/*==============================================================*/
-create table BOOK (
-   ID                   SERIAL               not null,
-   TITLE                VARCHAR(250)         null,
-   RELEASE_DATE         VARCHAR(250)         null,
-   AUTHOR               VARCHAR(250)         null,
-   CATEGORY             VARCHAR(250)         null,
-   EDITORIAL            VARCHAR(250)         null,
-   LANGUAGE             VARCHAR(250)         null,   
-   PAGES                VARCHAR(250)         null,
-   DESCRIPTION          VARCHAR(250)         null,
-   BOOK_COVER           VARCHAR(250)         null
-   constraint PK_BOOK primary key (ID)
+
+-- Table: Author
+CREATE TABLE Author (
+    id serial  NOT NULL,
+    name varchar(250)  NOT NULL,
+    CONSTRAINT Author_pk PRIMARY KEY (id)
 );
+
+-- Table: Book
+CREATE TABLE Book (
+    id serial  NOT NULL,
+    title varchar(250)  NOT NULL,
+    release_date varchar(250)  NOT NULL,
+    author_id int  NOT NULL,
+    category_id int  NOT NULL,
+    editorial_id int  NOT NULL,
+    editorial varchar(250)  NOT NULL,
+    language varchar(250)  NOT NULL,
+    pages serial  NOT NULL,
+    description varchar(250)  NOT NULL,
+    book_cover varchar(250)  NOT NULL,
+    CONSTRAINT Book_pk PRIMARY KEY (id)
+);
+
+-- Table: Category
+CREATE TABLE Category (
+    id serial  NOT NULL,
+    category varchar(250)  NOT NULL,
+    CONSTRAINT Category_pk PRIMARY KEY (id)
+);
+
+-- Table: Editorial
+CREATE TABLE Editorial (
+    id serial  NOT NULL,
+    editorial varchar(250)  NOT NULL,
+    CONSTRAINT Editorial_pk PRIMARY KEY (id)
+);
+
+-- foreign keys
+-- Reference: Book_Author (table: Book)
+ALTER TABLE Book ADD CONSTRAINT Book_Author
+    FOREIGN KEY (author_id)
+    REFERENCES Author (id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Book_Category (table: Book)
+ALTER TABLE Book ADD CONSTRAINT Book_Category
+    FOREIGN KEY (category_id)
+    REFERENCES Category (id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Book_Editorial (table: Book)
+ALTER TABLE Book ADD CONSTRAINT Book_Editorial
+    FOREIGN KEY (editorial_id)
+    REFERENCES Editorial (id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- End of file.
+
