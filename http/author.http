@@ -1,0 +1,17 @@
+####
+GET http://localhost:8080/v1/api/authors
+Content-Type: application/json
+
+
+####
+GET http://localhost:8080/v1/api/authors/2
+Content-Type: application/json
+
+
+####
+POST http://localhost:8080/v1/api/authors
+Content-Type: application/json
+
+{
+  "name":"Rick Yancey"
+}

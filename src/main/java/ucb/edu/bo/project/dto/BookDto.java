@@ -1,14 +1,17 @@
 package ucb.edu.bo.project.dto;
 
+import java.util.Date;
+
+
 import ucb.edu.bo.project.entity.Book;
 
 public class BookDto {
     private Integer bookId;
     private String title;
-    private String releaseDate;
-    private String author;
-    private String category;
-    private String editorial;
+    private Date releaseDate;
+    private Integer authorId;
+    private Integer categoryId;
+    private Integer editorialId;
     private String language;
     private Integer pages;
     private String description;
@@ -22,20 +25,22 @@ public class BookDto {
         bookId = book.getBookId();
         title = book.getTitle();
         releaseDate = book.getReleaseDate();
-        author = book.getAuthor();
+        authorId = book.getAuthorId();
+        categoryId = book.getCategoryId();
+        editorialId = book.getEditorialId();
         language = book.getLanguage();
         pages = book.getPages();
         description = book.getDescription();
         bookCover = book.getBookCover();
     }
 
-    public BookDto(Integer bookId, String title, String releaseDate, String author, String category, String editorial, String language, Integer pages, String description, String bookCover) {
+    public BookDto(Integer bookId, String title, Date releaseDate, Integer authorId, Integer categoryId, Integer editorialId, String language, Integer pages, String description, String bookCover) {
         this.bookId = bookId;
         this.title = title;
         this.releaseDate = releaseDate;
-        this.author = author;
-        this.category = category;
-        this.editorial = editorial;
+        this.authorId = authorId;
+        this.categoryId = categoryId;
+        this.editorialId = editorialId;
         this.language = language;
         this.pages = pages;
         this.description = description;
@@ -58,38 +63,41 @@ public class BookDto {
         this.title = title;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
         return this.releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-    public String getAuthor() {
-        return this.author;
+
+
+    public Integer getAuthorId() {
+        return this.authorId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
-    public String getCategory() {
-        return this.category;
+    public Integer getCategoryId() {
+        return this.categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getEditorial() {
-        return this.editorial;
+    public Integer getEditorialId() {
+        return this.editorialId;
     }
 
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
+    public void setEditorialId(Integer editorialId) {
+        this.editorialId = editorialId;
     }
-
+    
+    
     public String getLanguage() {
         return this.language;
     }
@@ -130,9 +138,9 @@ public class BookDto {
             " bookId='" + bookId + 
             ", title='" + title + '\'' +
             ", releaseDate='" + releaseDate + '\'' +
-            ", author='" + author + '\'' +
-            ", category='" + category + '\'' +
-            ", editorial='" + editorial + '\'' +
+            ", authorId='" + authorId + '\'' +
+            ", categoryId='" + categoryId + '\'' +
+            ", editorialId='" + editorialId + '\'' +
             ", language='" + language + '\'' +
             ", pages='" + pages + '\'' +
             ", description='" + description + '\'' +

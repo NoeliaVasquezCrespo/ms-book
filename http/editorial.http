@@ -1,0 +1,17 @@
+####
+GET http://localhost:8080/v1/api/editorial
+Content-Type: application/json
+
+
+####
+GET http://localhost:8080/v1/api/editorial/2
+Content-Type: application/json
+
+
+####
+POST http://localhost:8080/v1/api/editorial
+Content-Type: application/json
+
+{
+  "editorial":"DEF"
+}

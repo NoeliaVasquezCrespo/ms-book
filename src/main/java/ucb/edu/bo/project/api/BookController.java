@@ -51,7 +51,7 @@ public class BookController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Book> getBooksById(@PathVariable Long id) {
-        LOGGER.info("Invocando al servicio REST para obtener el estudiante con id: {}", id);
+        LOGGER.info("Invocando al servicio REST para obtener el libro con id: {}", id);
         Book book = bookBl.getBookById(id);
         LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
         return new ResponseEntity<>(book, HttpStatus.OK);
@@ -60,7 +60,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {
-        LOGGER.info("Invocando al servicio REST para registrar un estudiante con la siguiente información: {}", book);
+        LOGGER.info("Invocando al servicio REST para registrar un libro con la siguiente información: {}", book);
         Book result = bookBl.saveBook(book);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

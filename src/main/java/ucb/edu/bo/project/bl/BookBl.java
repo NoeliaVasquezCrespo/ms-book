@@ -41,16 +41,16 @@ public class BookBl {
     }
 
     public Book getBookById(Long id) {
-        LOGGER.info("DATABASE: Iniciando consulta para obtener estudiante con id: {}", id);
+        LOGGER.info("DATABASE: Iniciando consulta para obtener libro con id: {}", id);
         Book book = bookRepository.getBookById(id);
-        LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para obtener estudiante con id:{}, retorno {}", id, book);
+        LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para obtener libro con id:{}, retorno {}", id, book);
         return book;
     }
 
     public Book saveBook(Book book) {
-        LOGGER.info("DATABASE: Iniciando consulta para guardar estudiante con la siguiente información: {}", book);
+        LOGGER.info("DATABASE: Iniciando consulta para guardar libro con la siguiente información: {}", book);
         Book result = bookRepository.save(book);
-        LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para guardar estudiante retorno {}", result);
+        LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para guardar libro retorno {}", result);
         return result;
     }
 
