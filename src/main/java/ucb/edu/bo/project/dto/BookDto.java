@@ -10,12 +10,12 @@ public class BookDto {
     private String title;
     private Date releaseDate;
     private Integer authorId;
-    private Integer categoryId;
     private Integer editorialId;
     private String language;
     private Integer pages;
     private String description;
     private String bookCover;
+    private Integer status;
 
 
     public BookDto() {
@@ -26,25 +26,25 @@ public class BookDto {
         title = book.getTitle();
         releaseDate = book.getReleaseDate();
         authorId = book.getAuthorId();
-        categoryId = book.getCategoryId();
         editorialId = book.getEditorialId();
         language = book.getLanguage();
         pages = book.getPages();
         description = book.getDescription();
         bookCover = book.getBookCover();
+        status = book.getStatus();
     }
 
-    public BookDto(Integer bookId, String title, Date releaseDate, Integer authorId, Integer categoryId, Integer editorialId, String language, Integer pages, String description, String bookCover) {
+    public BookDto(Integer bookId, String title, Date releaseDate, Integer authorId,  Integer editorialId, String language, Integer pages, String description, String bookCover, Integer status) {
         this.bookId = bookId;
         this.title = title;
         this.releaseDate = releaseDate;
         this.authorId = authorId;
-        this.categoryId = categoryId;
         this.editorialId = editorialId;
         this.language = language;
         this.pages = pages;
         this.description = description;
         this.bookCover = bookCover;
+        this.status = status;
     }
 
     public Integer getBookId() {
@@ -71,8 +71,6 @@ public class BookDto {
         this.releaseDate = releaseDate;
     }
 
-
-
     public Integer getAuthorId() {
         return this.authorId;
     }
@@ -81,14 +79,7 @@ public class BookDto {
         this.authorId = authorId;
     }
 
-    public Integer getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
+   
     public Integer getEditorialId() {
         return this.editorialId;
     }
@@ -96,7 +87,6 @@ public class BookDto {
     public void setEditorialId(Integer editorialId) {
         this.editorialId = editorialId;
     }
-    
     
     public String getLanguage() {
         return this.language;
@@ -131,6 +121,15 @@ public class BookDto {
     }
 
 
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+
 
     @Override
     public String toString() {
@@ -139,12 +138,12 @@ public class BookDto {
             ", title='" + title + '\'' +
             ", releaseDate='" + releaseDate + '\'' +
             ", authorId='" + authorId + '\'' +
-            ", categoryId='" + categoryId + '\'' +
             ", editorialId='" + editorialId + '\'' +
             ", language='" + language + '\'' +
             ", pages='" + pages + '\'' +
             ", description='" + description + '\'' +
             ", bookCover='" + bookCover + '\'' +
+            ", status='" + status + '\'' +
             '}';
     }
 

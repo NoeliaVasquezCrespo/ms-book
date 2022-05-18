@@ -34,7 +34,7 @@ public class Category implements Serializable  {
     @Column(name = "category")
     private String category;
     @OneToMany(mappedBy = "categoryId", fetch = FetchType.LAZY)
-    private List<Book> categoryBookList;
+    private List<BookCategory> categoryBookList;
 
     public Category() {
     }

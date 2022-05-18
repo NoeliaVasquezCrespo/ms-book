@@ -17,15 +17,16 @@ POST http://localhost:8080/v1/api/books
 Content-Type: application/json
 
 {
-  "title": "Cazadores de Sombras",
-  "releaseDate": "2012-05-01",
+  "title": "Harry Potter y la piedra filosofal ",
+  "releaseDate": "1997-06-26",
   "authorId": "1",
-  "categoryId": "2",
-  "editorialId": "2",
+  "editorialId": "35",
   "language":"Spanish",
-  "pages":"496",
-  "description": "Yo antes de ti es una novela romantica de la escritora Jojo Moyes para jovenes adultos publicada en 2012. ",
-  "bookCover":"https://upload.wikimedia.org/wikipedia/commons/2/20/%27Me_Before_You%27.jpg"
+  "pages":"256",
+  "description": "Harry Potter se ha quedado huerfano y vive en casa de sus tios y el insoportable primo Dudley hasta que recibe una carta que cambiara su vida.",
+  "bookCover":"https://trabalibros.com/rs/1942/4886d523-1977-4fa1-ab24-df1b609c897c/c4c/filename/harry-potter-y-la-piedra-filosofal-j-k-rowling-trabalibros.jpg",
+  "status":"1"
+
 }
 
 

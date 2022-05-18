@@ -1,0 +1,19 @@
+####
+GET http://localhost:8080/v1/api/book/category
+Content-Type: application/json
+
+
+####
+GET http://localhost:8080/v1/api/book/category/2
+Content-Type: application/json
+
+
+####
+POST http://localhost:8080/v1/api/book/category
+Content-Type: application/json
+
+{
+  "bookId":"1",
+  "categoryId":"15"
+
+}

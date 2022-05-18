@@ -5,16 +5,16 @@ import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -23,8 +23,7 @@ import java.util.Date;
         @NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b"),
         @NamedQuery(name = "Book.findByBookId", query = "SELECT b FROM Book b WHERE b.bookId = :bookId"),
         @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title = :title"),
-        @NamedQuery(name = "Book.findByAuthor", query = "SELECT b FROM Book b WHERE b.authorId = :authorId"),
-        @NamedQuery(name = "Book.findByCategory", query = "SELECT b FROM Book b WHERE b.categoryId = :categoryId")})
+        @NamedQuery(name = "Book.findByAuthor", query = "SELECT b FROM Book b WHERE b.authorId = :authorId")})
 
 public class Book implements Serializable  {
     private static final long serialVersionUID = 1L;
@@ -41,12 +40,8 @@ public class Book implements Serializable  {
     @Column(name = "author_id")
     private int authorId;
     @Basic
-    @Column(name = "category_id")
-    private int categoryId;
-    @Basic
     @Column(name = "editorial_id")
     private int editorialId;
-    
     @Column(name = "language")
     private String language;
     @Column(name = "pages")
@@ -55,6 +50,10 @@ public class Book implements Serializable  {
     private String description;
     @Column(name = "book_cover")
     private String bookCover;
+    @Column(name = "status")
+    private Integer status;
+    @OneToMany(mappedBy = "bookId", fetch = FetchType.LAZY)
+    private List<BookCategory> BookcategoryList;
 
     public Book() {
     }
@@ -88,7 +87,6 @@ public class Book implements Serializable  {
     }
 
 
-
     public int getAuthorId() {
         return this.authorId;
     }
@@ -97,15 +95,6 @@ public class Book implements Serializable  {
         this.authorId = authorId;
     }
    
-
-
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
 
     public int getEditorialId() {
         return this.editorialId;
@@ -148,6 +137,16 @@ public class Book implements Serializable  {
     }
 
 
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+    
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -156,14 +155,14 @@ public class Book implements Serializable  {
             return false;
         }
         Book book = (Book) o;
-        return Objects.equals(bookId, book.bookId) && Objects.equals(title, book.title) && Objects.equals(releaseDate, book.releaseDate) && Objects.equals(authorId, book.authorId) && Objects.equals(categoryId, book.categoryId) && Objects.equals(editorialId, book.editorialId) && Objects.equals(language, book.language) && Objects.equals(pages, book.pages) && Objects.equals(description, book.description) && Objects.equals(bookCover, book.bookCover);
+        return Objects.equals(bookId, book.bookId) && Objects.equals(title, book.title) && Objects.equals(releaseDate, book.releaseDate) && authorId == book.authorId && editorialId == book.editorialId && Objects.equals(language, book.language) && Objects.equals(pages, book.pages) && Objects.equals(description, book.description) && Objects.equals(bookCover, book.bookCover) && Objects.equals(status, book.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookId, title, releaseDate, authorId, categoryId, editorialId, language, pages, description, bookCover);
+        return Objects.hash(bookId, title, releaseDate, authorId, editorialId, language, pages, description, bookCover, status);
     }
-
+    
 
     @Override
     public String toString() {
@@ -172,12 +171,12 @@ public class Book implements Serializable  {
             ", title='" + title + '\'' +
             ", releaseDate='" + releaseDate + '\'' +
             ", authorId='" + authorId + '\'' +
-            ", categoryId='" + categoryId + '\'' +
             ", editorialId='" + editorialId + '\'' +
             ", language='" + language + '\'' +
             ", pages='" + pages + '\'' +
             ", description='" + description + '\'' +
             ", bookCover='" + bookCover + '\'' +
+            ", status='" + status + '\'' +
             '}';
     }
 
