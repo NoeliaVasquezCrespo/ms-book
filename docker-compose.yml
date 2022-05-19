@@ -7,4 +7,4 @@ services:
     ports:
     - "8080:8080"
     environment:
-      - "URL_DATABASE=jdbc:postgresql://192.168.0.11:5432/library_db"
+      - "URL_DATABASE=${DATABASE}"
