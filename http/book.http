@@ -1,5 +1,5 @@
 #####
-GET http://ucb.edu.bo:8070/v1/api/nota
+GET http://localhost:8080/v1/api/books/paginate?page=1&size=10
 Content-Type: application/json
 
 ####
