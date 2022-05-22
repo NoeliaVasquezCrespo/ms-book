@@ -21,7 +21,7 @@ public class BookController {
 
     private BookBl bookBl;
 
-    @Value("${key}")
+    @Value("${server.port}")
     String key;
 
     @Autowired
@@ -34,7 +34,7 @@ public class BookController {
             @RequestParam Integer page,
             @RequestParam Integer size
     ) {
-        LOGGER.info("Invocando al servicio REST para obtener el listado de libros con KEY: {}", key);
+        LOGGER.info("Invocando al servicio REST para obtener el listado de libros en el PUERTO: {}", key);
         PageImpl<BookDto> bookList = bookBl.getBooksPaginate(page, size);
         LOGGER.info("Invocacion exitosa para obtener el listado de libros {}", bookList);
         return new ResponseEntity<>(bookList, HttpStatus.OK);
@@ -42,9 +42,9 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Book>> getBooks() {
-        LOGGER.info("Invocando al servicio REST para obtener el listado de libros con KEY: {}", key);
+        LOGGER.info("Invocando al servicio REST para obtener el listado de libros en el PUERTO: {}", key);
         List<Book> bookList = bookBl.getBooks();
-        LOGGER.info("Invocacion exitosa para obtener el listado de libros {}", bookList);
+      //  LOGGER.info("Invocacion exitosa para obtener el listado de libros {}", bookList);
         return new ResponseEntity<>(bookList, HttpStatus.OK);
     }
 
