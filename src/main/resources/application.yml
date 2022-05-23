@@ -15,7 +15,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
 server:
-  port: 7000
+  port: 7010
   
 key: ABCDabcd1234
 
