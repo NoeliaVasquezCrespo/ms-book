@@ -18,7 +18,7 @@ POST http://localhost:7878/v1/api/book/category
 Content-Type: application/json
 
 {
-  "bookId":"1",
-  "categoryId":"15"
+  "bookId":"4",
+  "categoryId":"22"
 
 }

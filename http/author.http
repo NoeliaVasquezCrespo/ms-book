@@ -13,5 +13,5 @@ POST http://localhost:7878/v1/api/authors
 Content-Type: application/json
 
 {
-  "name":"Rick Yancey"
+  "name":"Ken Follet"
 }

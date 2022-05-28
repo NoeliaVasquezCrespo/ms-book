@@ -18,5 +18,5 @@ POST http://localhost:7878/v1/api/editorial
 Content-Type: application/json
 
 {
-  "editorial":"DEF"
+  "editorial":"Venus"
 }

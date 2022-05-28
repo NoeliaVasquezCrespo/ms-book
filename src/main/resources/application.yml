@@ -5,7 +5,7 @@ spring:
 #    platform: postgres
     url: ${URL_DATABASE:jdbc:postgresql://localhost:5432/library_db}
     username: postgres
-    password: 1234
+    password: postgres
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,7 +15,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
 server:
-  port: 7010
+  port: 7878
   
 key: ABCDabcd1234
 

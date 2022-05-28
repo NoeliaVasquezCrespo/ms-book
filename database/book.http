@@ -1,0 +1,60 @@
+{
+  "title": "Harry Potter y el prisionero de Azkaban",
+  "releaseDate": "1999-07-08",
+  "authorId": "1",
+  "editorialId": "35",
+  "language":"Spanish",
+  "pages":"317",
+  "description": "Harry Potter y el prisionero de Azkaban, es el tercer libro de la serie literaria Harry Potter",
+  "bookCover":"https://static.wikia.nocookie.net/esharrypotter/images/8/81/Harry_Potter_y_el_prisionero_de_Azkaban_Portada_Espa%C3%B1ol.PNG/revision/latest?cb=20151020170338",
+  "status":"1"
+
+}
+{
+  "title": "Cazadores de Sombras: Ciudad de Hueso",
+  "releaseDate": "2007-03-27",
+  "authorId": "4",
+  "editorialId": "15",
+  "language":"Spanish",
+  "pages":"512",
+  "description": "La serie trata la historia de Clarissa Fray y su descubrimiento de un mundo completamente distinto al que conoce",
+  "bookCover":"https://planetadelibroscom.cdnstatics2.com/usuaris/libros/fotos/5/m_libros/9788408083801.jpg",
+  "status":"1"
+
+}
+{
+  "title": "La quinta Ola",
+  "releaseDate": "2013-05-07",
+  "authorId": "3",
+  "editorialId": "8",
+  "language":"Spanish",
+  "pages":"433",
+  "description": "Cuatro oleadas sucesivas de ataques cada vez mas mortiferos de alienigenas han dejado la mayor parte de La Tierra diezmada.",
+  "bookCover":"https://covers.alibrate.com/b/59872ea2cba2bce50c1daad4/8124660d-a518-4ef4-bbb1-c1032ed4d7c0/medium",
+  "status":"1"
+
+}
+{
+  "title": "Yo antes de ti",
+  "releaseDate": "2012-01-05",
+  "authorId": "2",
+  "editorialId": "29",
+  "language":"Spanish",
+  "pages":"496",
+  "description": "William Traynor: Un hombre de 35 anios que quedo tetraplejico despues de ser atropellado por una motocicleta",
+  "bookCover":"https://images.cdn2.buscalibre.com/fit-in/360x360/5b/7c/5b7cb25f3dc6d962a06c3f0663f5bfd1.jpg",
+  "status":"1"
+
+}
+{
+  "title": "Harry Potter y la piedra filosofal ",
+  "releaseDate": "1997-06-26",
+  "authorId": "1",
+  "editorialId": "35",
+  "language":"Spanish",
+  "pages":"256",
+  "description": "Harry Potter se ha quedado huerfano y vive en casa de sus tios y el insoportable primo Dudley hasta que recibe una carta que cambiara su vida.",
+  "bookCover":"https://trabalibros.com/rs/1942/4886d523-1977-4fa1-ab24-df1b609c897c/c4c/filename/harry-potter-y-la-piedra-filosofal-j-k-rowling-trabalibros.jpg",
+  "status":"1"
+
+}

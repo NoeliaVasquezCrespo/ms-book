@@ -1,7 +1,16 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-05-17 15:24:29.336
+-- Last modification date: 2022-05-24 05:35:11.108
 
 -- tables
+-- Table: Address
+CREATE TABLE Address (
+    address_id serial  NOT NULL,
+    address varchar(100)  NOT NULL,
+    postal_code int  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT Address_pk PRIMARY KEY (address_id)
+);
+
 -- Table: Author
 CREATE TABLE Author (
     author_id serial  NOT NULL,
@@ -26,10 +35,10 @@ CREATE TABLE Book (
 
 -- Table: Book_Category
 CREATE TABLE Book_Category (
-    book_category_id serial  NOT NULL,
+    id_book_category serial  NOT NULL,
     book_id int  NOT NULL,
     category_id int  NOT NULL,
-    CONSTRAINT Book_Category_pk PRIMARY KEY (book_category_id)
+    CONSTRAINT Book_Category_pk PRIMARY KEY (id_book_category)
 );
 
 -- Table: Category
@@ -39,11 +48,43 @@ CREATE TABLE Category (
     CONSTRAINT Category_pk PRIMARY KEY (category_id)
 );
 
+-- Table: Client
+CREATE TABLE Client (
+    client_id serial  NOT NULL,
+    name varchar(250)  NOT NULL,
+    lastname varchar(250)  NOT NULL,
+    email varchar(250)  NOT NULL,
+    phone int  NOT NULL,
+    address_id int  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT Client_pk PRIMARY KEY (client_id)
+);
+
 -- Table: Editorial
 CREATE TABLE Editorial (
     editorial_id serial  NOT NULL,
     editorial varchar(250)  NOT NULL,
     CONSTRAINT Editorial_pk PRIMARY KEY (editorial_id)
+);
+
+-- Table: Loan
+CREATE TABLE Loan (
+    loan_id serial  NOT NULL,
+    client_id int  NOT NULL,
+    loan_date date  NOT NULL,
+    return_date date  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT Loan_pk PRIMARY KEY (loan_id)
+);
+
+-- Table: Loan_details
+CREATE TABLE Loan_details (
+    loan_details_id serial  NOT NULL,
+    book_id int  NOT NULL,
+    loan_id int  NOT NULL,
+    loan_status varchar(20)  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT Loan_details_pk PRIMARY KEY (loan_details_id)
 );
 
 -- foreign keys
@@ -75,6 +116,38 @@ ALTER TABLE Book_Category ADD CONSTRAINT Book_Category_Category
 ALTER TABLE Book ADD CONSTRAINT Book_Editorial
     FOREIGN KEY (editorial_id)
     REFERENCES Editorial (editorial_id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Client_Address (table: Client)
+ALTER TABLE Client ADD CONSTRAINT Client_Address
+    FOREIGN KEY (address_id)
+    REFERENCES Address (address_id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Loan_Client (table: Loan)
+ALTER TABLE Loan ADD CONSTRAINT Loan_Client
+    FOREIGN KEY (client_id)
+    REFERENCES Client (client_id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Loan_details_Book (table: Loan_details)
+ALTER TABLE Loan_details ADD CONSTRAINT Loan_details_Book
+    FOREIGN KEY (book_id)
+    REFERENCES Book (book_id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Loan_details_Loan (table: Loan_details)
+ALTER TABLE Loan_details ADD CONSTRAINT Loan_details_Loan
+    FOREIGN KEY (loan_id)
+    REFERENCES Loan (loan_id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
