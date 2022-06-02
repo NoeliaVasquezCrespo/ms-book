@@ -15,6 +15,7 @@ public class BookDto {
     private Integer pages;
     private String description;
     private String bookCover;
+    private Integer stock;
     private Integer status;
 
 
@@ -31,10 +32,11 @@ public class BookDto {
         pages = book.getPages();
         description = book.getDescription();
         bookCover = book.getBookCover();
+        stock = book.getStock();
         status = book.getStatus();
     }
 
-    public BookDto(Integer bookId, String title, Date releaseDate, Integer authorId,  Integer editorialId, String language, Integer pages, String description, String bookCover, Integer status) {
+    public BookDto(Integer bookId, String title, Date releaseDate, Integer authorId,  Integer editorialId, String language, Integer pages, String description, String bookCover, Integer stock, Integer status) {
         this.bookId = bookId;
         this.title = title;
         this.releaseDate = releaseDate;
@@ -44,6 +46,7 @@ public class BookDto {
         this.pages = pages;
         this.description = description;
         this.bookCover = bookCover;
+        this.stock = stock;
         this.status = status;
     }
 
@@ -120,6 +123,13 @@ public class BookDto {
         this.bookCover = bookCover;
     }
 
+    public Integer getStock() {
+        return this.stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 
     public Integer getStatus() {
         return this.status;
@@ -143,6 +153,7 @@ public class BookDto {
             ", pages='" + pages + '\'' +
             ", description='" + description + '\'' +
             ", bookCover='" + bookCover + '\'' +
+            ", stock='" + stock + '\'' +
             ", status='" + status + '\'' +
             '}';
     }

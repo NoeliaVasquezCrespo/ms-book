@@ -17,7 +17,7 @@ POST http://localhost:7878/v1/api/books
 Content-Type: application/json
 
 {
-  "title": "Harry Potter y la piedra filosofal ",
+  "title": "Harry Potter y la camara de los secretos",
   "releaseDate": "1997-06-26",
   "authorId": "1",
   "editorialId": "35",
@@ -25,10 +25,28 @@ Content-Type: application/json
   "pages":"256",
   "description": "Harry Potter se ha quedado huerfano y vive en casa de sus tios y el insoportable primo Dudley hasta que recibe una carta que cambiara su vida.",
   "bookCover":"https://trabalibros.com/rs/1942/4886d523-1977-4fa1-ab24-df1b609c897c/c4c/filename/harry-potter-y-la-piedra-filosofal-j-k-rowling-trabalibros.jpg",
+  "stock": "30",
   "status":"1"
 
 }
 
+####
+PUT http://localhost:7878/v1/api/books/5
+Content-Type: application/json
+
+{
+  "title": "Harry Potter y la piedra filosofal",
+  "releaseDate": "1997-06-26",
+  "authorId": "1",
+  "editorialId": "35",
+  "language":"Spanish",
+  "pages":"256",
+  "description": "Harry Potter se ha quedado huerfano y vive en casa de sus tios y el insoportable primo Dudley hasta que recibe una carta que cambiara su vida.",
+  "bookCover":"https://trabalibros.com/rs/1942/4886d523-1977-4fa1-ab24-df1b609c897c/c4c/filename/harry-potter-y-la-piedra-filosofal-j-k-rowling-trabalibros.jpg",
+  "stock": "30",
+  "status":"1"
+
+}
 
 ####
 DELETE http://localhost:7878/v1/api/books/1

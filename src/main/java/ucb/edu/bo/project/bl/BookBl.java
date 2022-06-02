@@ -98,8 +98,9 @@ public class BookBl {
         if (Objects.nonNull(book.getBookCover())){
             bookDB.setBookCover(book.getBookCover());
         }
-
-
+        if (Objects.nonNull(book.getStock())){
+            bookDB.setStock(book.getStock());
+        }
 
         if (Objects.nonNull(book.getStatus())){
             bookDB.setStatus(book.getStatus());

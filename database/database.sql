@@ -29,6 +29,7 @@ CREATE TABLE Book (
     pages serial  NOT NULL,
     description varchar(250)  NOT NULL,
     book_cover varchar(250)  NOT NULL,
+    stock int  NOT NULL,
     status int  NOT NULL,
     CONSTRAINT Book_pk PRIMARY KEY (book_id)
 );

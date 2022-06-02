@@ -54,6 +54,8 @@ public class Book implements Serializable  {
     private String description;
     @Column(name = "book_cover")
     private String bookCover;
+    @Column(name = "stock")
+    private int stock;
     @Column(name = "status")
     private Integer status;
     @OneToMany(mappedBy = "bookId", fetch = FetchType.LAZY)
@@ -140,7 +142,13 @@ public class Book implements Serializable  {
         this.bookCover = bookCover;
     }
 
+    public int getStock() {
+        return this.stock;
+    }
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
     public Integer getStatus() {
         return this.status;
@@ -159,12 +167,12 @@ public class Book implements Serializable  {
             return false;
         }
         Book book = (Book) o;
-        return Objects.equals(bookId, book.bookId) && Objects.equals(title, book.title) && Objects.equals(releaseDate, book.releaseDate) && authorId == book.authorId && editorialId == book.editorialId && Objects.equals(language, book.language) && Objects.equals(pages, book.pages) && Objects.equals(description, book.description) && Objects.equals(bookCover, book.bookCover) && Objects.equals(status, book.status);
+        return Objects.equals(bookId, book.bookId) && Objects.equals(title, book.title) && Objects.equals(releaseDate, book.releaseDate) && authorId == book.authorId && editorialId == book.editorialId && Objects.equals(language, book.language) && Objects.equals(pages, book.pages) && Objects.equals(description, book.description) && Objects.equals(bookCover, book.bookCover) && Objects.equals(stock, book.stock) && Objects.equals(status, book.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookId, title, releaseDate, authorId, editorialId, language, pages, description, bookCover, status);
+        return Objects.hash(bookId, title, releaseDate, authorId, editorialId, language, pages, description, bookCover, stock, status);
     }
     
 
@@ -180,6 +188,7 @@ public class Book implements Serializable  {
             ", pages='" + pages + '\'' +
             ", description='" + description + '\'' +
             ", bookCover='" + bookCover + '\'' +
+            ", stock='" + stock + '\'' +
             ", status='" + status + '\'' +
             '}';
     }
