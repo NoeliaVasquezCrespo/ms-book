@@ -13,12 +13,16 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.SQLDelete;
+
 import java.util.Date;
 import java.util.List;
 
 
 @Entity
 @Table(name = "book")
+@SQLDelete(sql = "UPDATE book SET status=0 WHERE id=?")
 @NamedQueries({
         @NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b"),
         @NamedQuery(name = "Book.findByBookId", query = "SELECT b FROM Book b WHERE b.bookId = :bookId"),

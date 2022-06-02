@@ -50,7 +50,7 @@ public class BookController {
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Book> getBooksById(@PathVariable Long id) {
+    public ResponseEntity<Book> getBooksById(@PathVariable Integer id) {
         LOGGER.info("Invocando al servicio REST para obtener el libro con id: {}", id);
         Book book = bookBl.getBookById(id);
         LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
@@ -65,4 +65,25 @@ public class BookController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     
+
+    @RequestMapping(path = "/{id}",method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteBook(@PathVariable Integer id) {
+        boolean result = this.bookBl.deleteBook(id);
+        if(result){
+            return new ResponseEntity<>("SE ELIMINO LIBRO CORRECTAMENTE",
+                    HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("NO SE ENCONTRO LIBRO",
+                    HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Book> updateBook(@PathVariable Integer id, @RequestBody Book book) {
+        LOGGER.info("Invocando al servicio REST para editar el libro con id: {}", id);
+        book = bookBl.updateBook(id, book);
+        LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
+        return new ResponseEntity<>(book, HttpStatus.OK);
+    }
 }

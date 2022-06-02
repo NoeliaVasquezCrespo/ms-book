@@ -10,6 +10,8 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,7 +42,7 @@ public class BookBl {
         return bookList;
     }
 
-    public Book getBookById(Long id) {
+    public Book getBookById(Integer id) {
         LOGGER.info("DATABASE: Iniciando consulta para obtener libro con id: {}", id);
         Book book = bookRepository.getBookById(id);
         LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para obtener libro con id:{}, retorno {}", id, book);
@@ -52,6 +54,57 @@ public class BookBl {
         Book result = bookRepository.save(book);
         LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para guardar libro retorno {}", result);
         return result;
+    }
+
+    public boolean deleteBook(Integer id){
+        Optional<Book> optionalBook = this.bookRepository.findById(id);
+        if(optionalBook.isPresent()){
+            Book book = optionalBook.get();
+            book.setStatus(0);
+            this.bookRepository.save(book);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Book updateBook(Integer id, Book book) {
+        Book bookDB = bookRepository.getBookById(id);
+
+        if (Objects.nonNull(book.getBookId())){
+            bookDB.setBookId(book.getBookId());
+        }
+        if (Objects.nonNull(book.getTitle())){
+            bookDB.setTitle(book.getTitle());
+        }
+        if (Objects.nonNull(book.getReleaseDate())){
+            bookDB.setReleaseDate(book.getReleaseDate());
+        }
+        if (Objects.nonNull(book.getAuthorId())){
+            bookDB.setAuthorId(book.getAuthorId());
+        }
+        if (Objects.nonNull(book.getEditorialId())){
+            bookDB.setEditorialId(book.getEditorialId());
+        }
+        if (Objects.nonNull(book.getLanguage())){
+            bookDB.setLanguage(book.getLanguage());
+        }
+        if (Objects.nonNull(book.getPages())){
+            bookDB.setPages(book.getPages());
+        }
+        if (Objects.nonNull(book.getDescription())){
+            bookDB.setDescription(book.getDescription());
+        }
+        if (Objects.nonNull(book.getBookCover())){
+            bookDB.setBookCover(book.getBookCover());
+        }
+
+
+
+        if (Objects.nonNull(book.getStatus())){
+            bookDB.setStatus(book.getStatus());
+        }
+        return bookRepository.save(bookDB);
     }
 
 }

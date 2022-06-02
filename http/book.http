@@ -3,7 +3,7 @@ GET http://localhost:7878/v1/api/books/paginate?page=1&size=10
 Content-Type: application/json
 
 ####
-GET http://localhost:7000/v1/api/books
+GET http://localhost:7878/v1/api/books
 Content-Type: application/json
 
 
@@ -29,11 +29,7 @@ Content-Type: application/json
 
 }
 
-#####
-GET http://localhost:8070/v1/api/books/paginate?page=2&size=20
-Content-Type: application/json
 
-#####
-GET http://localhost:8081/v1/api/books/paginate?page=2&size=20
+####
+DELETE http://localhost:7878/v1/api/books/1
 Content-Type: application/json
-
