@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 @RequestMapping("/v1/api/categories")
 public class CategoryController {
     private static Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);

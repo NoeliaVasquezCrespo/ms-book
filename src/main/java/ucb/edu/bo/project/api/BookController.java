@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 @RequestMapping("/v1/api/books")
 public class BookController {
     private static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
@@ -86,4 +87,14 @@ public class BookController {
         LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
+
+
+    @RequestMapping(value = "/list/{status}", method = RequestMethod.GET)
+    public ResponseEntity<List<Book>> getBooksByStatus(@PathVariable Integer status) {
+        LOGGER.info("Invocando al servicio REST para obtener el libro con status: {}", status);
+        List<Book> book = bookBl.getBookByStatus(status);
+        LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
+        return new ResponseEntity<>(book, HttpStatus.OK);
+    }
+
 }

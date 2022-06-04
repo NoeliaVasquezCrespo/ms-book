@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import ucb.edu.bo.project.entity.Book;
-
+import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface BookRepository extends PagingAndSortingRepository<Book, Integer> {
@@ -20,6 +20,8 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Integer
 
     @Query(value = "SELECT * FROM book b WHERE b.book_id = :id", nativeQuery = true)
     Book getBookById(Integer id);
+
+    public List<Book> getBookByStatus(@Param("status") Integer status);
 
  
     

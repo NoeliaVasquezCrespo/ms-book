@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 @RequestMapping("/v1/api/authors")
 public class AuthorController {
     private static Logger LOGGER = LoggerFactory.getLogger(AuthorController.class);

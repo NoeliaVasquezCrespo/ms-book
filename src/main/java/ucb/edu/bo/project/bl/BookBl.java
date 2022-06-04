@@ -108,4 +108,12 @@ public class BookBl {
         return bookRepository.save(bookDB);
     }
 
+
+    public List<Book> getBookByStatus(Integer status) {
+        
+        LOGGER.info("DATABASE: Iniciando consulta para obtener libros con status: {}", status);
+        return (List<Book>) bookRepository.getBookByStatus(status);
+      
+    }
+
 }

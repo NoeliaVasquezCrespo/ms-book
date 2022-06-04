@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 @RequestMapping("/v1/api/editorial")
 public class EditorialController {
     private static Logger LOGGER = LoggerFactory.getLogger(EditorialController.class);
