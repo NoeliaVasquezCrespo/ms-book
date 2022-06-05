@@ -66,7 +66,7 @@ public class BookController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Book> updateStockBook(@PathVariable Integer id) {
         LOGGER.info("Invocando al servicio REST para editar el libro con id: {}", id);
         Book result = bookBl.updateStockBook(id, 1);
