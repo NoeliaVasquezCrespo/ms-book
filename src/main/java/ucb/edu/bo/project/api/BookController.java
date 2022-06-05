@@ -43,7 +43,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Book>> getBooks() {
-        LOGGER.info("Invocando al servicio REST para obtener el listado de libros en el PUERTO: {}", key);
+        LOGGER.info("Invocando al servicio REST para obtener el listado de libros al ms LOANS SERVICE", key);
         List<Book> bookList = bookBl.getBooks();
       //  LOGGER.info("Invocacion exitosa para obtener el listado de libros {}", bookList);
         return new ResponseEntity<>(bookList, HttpStatus.OK);

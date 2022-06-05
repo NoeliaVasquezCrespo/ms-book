@@ -36,7 +36,7 @@ public class BookBl {
     }
 
     public List<Book> getBooks() {
-        List<Book> bookList = (List<Book>) bookRepository.findAll();
+        List<Book> bookList = (List<Book>) bookRepository.getBookByStatus(1);
         return bookList;
     }
 
