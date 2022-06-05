@@ -110,10 +110,20 @@ public class BookBl {
 
 
     public List<Book> getBookByStatus(Integer status) {
-        
         LOGGER.info("DATABASE: Iniciando consulta para obtener libros con status: {}", status);
         return (List<Book>) bookRepository.getBookByStatus(status);
-      
+    }
+
+    public boolean updateStatusBook(Integer id){
+        Optional<Book> optionalBook = this.bookRepository.findById(id);
+        if(optionalBook.isPresent()){
+            Book book = optionalBook.get();
+            book.setStatus(1);
+            this.bookRepository.save(book);
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

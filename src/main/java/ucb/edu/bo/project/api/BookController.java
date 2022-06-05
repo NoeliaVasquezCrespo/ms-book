@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/v1/api/books")
 public class BookController {
     private static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
@@ -70,13 +70,8 @@ public class BookController {
     @RequestMapping(path = "/{id}",method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteBook(@PathVariable Integer id) {
         boolean result = this.bookBl.deleteBook(id);
-        if(result){
-            return new ResponseEntity<>("SE ELIMINO LIBRO CORRECTAMENTE",
-                    HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>("NO SE ENCONTRO LIBRO",
-                    HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
+        
     }
 
 
@@ -86,6 +81,12 @@ public class BookController {
         book = bookBl.updateBook(id, book);
         LOGGER.info("Invocacion exitosa para obtener el libros {}", book);
         return new ResponseEntity<>(book, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/status/{id}",method = RequestMethod.PUT)
+    public ResponseEntity<?> updateStatusBook(@PathVariable Integer id) {
+        boolean result = this.bookBl.updateStatusBook(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 
