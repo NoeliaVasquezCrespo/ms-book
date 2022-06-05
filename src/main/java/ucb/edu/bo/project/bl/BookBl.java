@@ -122,6 +122,14 @@ public class BookBl {
         return bookRepository.save(bookDB);
     }
 
+    public Book updateStockBook(Integer id, Integer cant) {
+        Book bookDB = bookRepository.getBookById(id);
+        Integer actStock = bookDB.getStock()-cant;
+        if (actStock>0){
+            bookDB.setStock(actStock);
+        }
+        return bookRepository.save(bookDB);
+    }
 
     public List<Book> getBookByStatus(Integer status) {
         LOGGER.info("DATABASE: Iniciando consulta para obtener libros con status: {}", status);

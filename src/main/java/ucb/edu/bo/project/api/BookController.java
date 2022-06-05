@@ -65,6 +65,13 @@ public class BookController {
         Book result = bookBl.saveBook(book);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.POST)
+    public ResponseEntity<Book> updateStockBook(@PathVariable Integer id) {
+        LOGGER.info("Invocando al servicio REST para editar el libro con id: {}", id);
+        Book result = bookBl.updateStockBook(id, 1);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
     
 
     @RequestMapping(path = "/{id}",method = RequestMethod.DELETE)
