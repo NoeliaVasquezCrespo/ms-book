@@ -60,7 +60,7 @@ public class BookController {
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Book> saveBook(@RequestBody Book book) {
+    public ResponseEntity<Book> saveBook(@RequestBody BookDto book) {
         LOGGER.info("Invocando al servicio REST para registrar un libro con la siguiente información: {}", book);
         Book result = bookBl.saveBook(book);
         return new ResponseEntity<>(result, HttpStatus.OK);

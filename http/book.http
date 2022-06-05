@@ -25,8 +25,7 @@ Content-Type: application/json
   "pages":"256",
   "description": "Harry Potter se ha quedado huerfano y vive en casa de sus tios y el insoportable primo Dudley hasta que recibe una carta que cambiara su vida.",
   "bookCover":"https://trabalibros.com/rs/1942/4886d523-1977-4fa1-ab24-df1b609c897c/c4c/filename/harry-potter-y-la-piedra-filosofal-j-k-rowling-trabalibros.jpg",
-  "stock": "30",
-  "status":"1"
+  "stock": "30"
 
 }
 

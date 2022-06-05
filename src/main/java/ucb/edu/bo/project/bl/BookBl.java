@@ -31,14 +31,12 @@ public class BookBl {
         List<BookDto> bookList = pageBook.stream()
                 .map(BookDto::new)
                 .collect(Collectors.toList());
-     //   LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para obtener el listado de libros {}", bookList);
+   
         return new PageImpl<>(bookList, pageable, pageBook.getTotalElements());
     }
 
     public List<Book> getBooks() {
-    //    LOGGER.info("DATABASE: Iniciando consulta para obtener los libros");
         List<Book> bookList = (List<Book>) bookRepository.findAll();
-     //   LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para obtener el listado de libros {}", bookList);
         return bookList;
     }
 
@@ -49,9 +47,25 @@ public class BookBl {
         return book;
     }
 
-    public Book saveBook(Book book) {
+    public Book saveBook(BookDto book) {
+
+        Book bookDB = new Book();
+
+            bookDB.setBookId(book.getBookId());
+            bookDB.setTitle(book.getTitle());
+            bookDB.setReleaseDate(book.getReleaseDate());
+            bookDB.setAuthorId(book.getAuthorId());
+            bookDB.setEditorialId(book.getEditorialId());
+            bookDB.setLanguage(book.getLanguage());
+            bookDB.setPages(book.getPages());
+            bookDB.setDescription(book.getDescription());
+            bookDB.setBookCover(book.getBookCover());
+            bookDB.setStock(book.getStock());
+            bookDB.setStatus(1);
+    
+
         LOGGER.info("DATABASE: Iniciando consulta para guardar libro con la siguiente información: {}", book);
-        Book result = bookRepository.save(book);
+        Book result = this.bookRepository.save(bookDB);
         LOGGER.info("DATABASE-SUCCESS: Consulta exitosa para guardar libro retorno {}", result);
         return result;
     }
